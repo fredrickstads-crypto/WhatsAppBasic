@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freca's Kitchen | Fresh & Affordable Meals</title>
+  <style>
+    :root {
+      --primary: #e63939;
+      --dark: #1d1d1d;
+      --light: #f8f9fa;
+      --accent: #f4a261;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background : radial-gradient(circle ,orange ,white);
+      min-height: 100vh;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--dark);
+      color: white;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      background-image: url("heros.jpg");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 18px;
+      line-height: 1.1;
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 35px;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      background-color: var(--primary);
+      color: white;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(230, 57, 57, 0.3);
+    }
+
+    .cta-button:hover {
+      background-color: #c11212;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(230, 57, 57, 0.4);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--dark);
+      font-size: 2.3rem;
+      font-weight: 700;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background:white;
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.09);
+      transition: all 0.4s ease;
+      border: 1px solid #f0f0f0;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+      z-index: 1;
+      border-radius: 16px;
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .service-card p {
+      color: white;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    }
+
+    .service-card strong {
+      font-size: 1.4rem;
+      color: #ffd700;
+      display: block;
+      margin-top: 15px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 35px rgba(255,255,255,0.8);
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 2000;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero p {
+        font-size: 1.15rem;
+      }
+      section {
+        padding: 60px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="logo">FRECA's Kitchen</div>
+      <div>📍 Kampala • Fresh Meals Daily</div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Fresh, Affordable & Delicious Meals</h1>
+      <p>Best local food in Kampala • Fast delivery & takeaway available</p>
+      <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+        Order Now
+      </button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align: center; max-width: 720px; margin: 0 auto; font-size: 1.15rem; color: #444;">
+      We serve hot, fresh, and affordable Ugandan meals with love. 
+      Whether you're craving matooke, rice, posho with sauce, or grilled chicken — we've got you covered.
+    </p>
+  </section>
+
+  <!-- Popular Meals -->
+  <section>
+    <h2>Popular Meals</h2>
+    <div class="services">
+
+      <div class="service-card" style="background-image: url('c1.jpg');">
+        <h3>🍛 Local Special</h3>
+        <p>Matooke + Groundnut sauce + Meat</p>
+        <strong>UGX 12,000</strong>
+      </div>
+
+      <div class="service-card" style="background-image: url('c3.jpg');">
+        <h3>🍗 Grilled Chicken</h3>
+        <p>With chips or rice</p>
+        <strong>UGX 15,000</strong>
+      </div>
+
+      <div class="service-card" style="background-image: url('card2.jpg');">
+        <h3>🍲 Stew & Posho</h3>
+        <p>Beef or Chicken stew</p>
+        <strong>UGX 10,000</strong>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p style="text-align: center; margin-bottom: 35px; font-size: 1.1rem;">
+      Call or WhatsApp us to place your order<br>
+      <strong style="font-size: 1.45rem; color: var(--primary);">+256 778 485 966</strong>
+    </p>
+    
+    <div style="text-align: center;">
+      <a href="https://wa.me/256778485966?text=Hello%20FRECA's%20Kitchen%2C%20I%20want%20to%20order%20food" 
+         target="_blank" 
+         class="cta-button" 
+         style="display: inline-block; text-decoration: none;">
+        Order on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/256778485966?text=Hello%2C%20I%20saw%20your%20website%20and%20I%20want%20to%20order" 
+     class="whatsapp-float" 
+     target="_blank"
+     title="Chat on WhatsApp">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.485-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.43 5.168L2 22l4.95-1.3C9.34 21.48 10.66 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.32 0-2.59-.38-3.68-1.05L4 20l1.05-3.32C4.38 15.59 4 14.32 4 13c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/>
+    </svg>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Freca's Kitchen - Kampala</p>
+    <p>Made with ❤️ for good food lovers in Uganda</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 80) {
+        header.style.backgroundColor = 'rgba(29, 29, 29, 0.97)';
+      } else {
+        header.style.backgroundColor = 'var(--dark)';
+      }
+    });
+
+    console.log("Freca's Kitchen landing page loaded!");
+  </script>
+</body>
+</html>
